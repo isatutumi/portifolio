@@ -213,6 +213,10 @@ h3 {
     align-items: center;
 }
 
+.projetos__header:hover {
+    cursor: pointer;
+}
+
 .projetos__icone {
     width: 1rem;
     height: 1rem;

@@ -11,20 +11,22 @@ function closeNav() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const icone = document.getElementById('projetos__icone');
-    const descricao = document.getElementById('projetos__descricao');
-    const link = document.getElementById('projetos__link');
+    const cabecalhos = document.querySelectorAll('.projetos__header');
 
-    icone.addEventListener('click', function() {
-        // Alterna a visibilidade da descrição e link
-        if (descricao.style.display === 'none') {
-            descricao.style.display = 'block';
-            link.style.display = 'block';
-            icone.src = './assets/up-arrow.png'; // Muda o ícone para indicar que pode ser fechado
-        } else {
-            descricao.style.display = 'none';
-            link.style.display = 'none';
-            icone.src = './assets/down-arrow.png'; // Muda o ícone para indicar que pode ser aberto
-        }
+    cabecalhos.forEach((cabecalho, index) => {
+        const descricao = document.querySelectorAll('.projetos__descricao')[index];
+        const link = document.querySelectorAll('.projetos__link')[index];
+        const icone = cabecalho.querySelector('.projetos__icone');
+        cabecalho.addEventListener('click', function() {
+            if (descricao.style.display === 'none' || descricao.style.display === '') {
+                descricao.style.display = 'block';
+                link.style.display = 'block';
+                icone.src = './assets/up-arrow.png'; 
+            } else {
+                descricao.style.display = 'none';
+                link.style.display = 'none';
+                icone.src = './assets/down-arrow.png';
+            }
+        });
     });
 });
